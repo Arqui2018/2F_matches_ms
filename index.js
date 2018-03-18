@@ -1,9 +1,13 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const PORT_MONGO = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/test';
+mongoose.connect(PORT_MONGO);
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
