@@ -2,16 +2,16 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "database/development.sqlite3",
-    "host": "127.0.0.1",
-    "dialect": "sqlite3"
+    "database": "database_development",
+    "host": "db/development.sqlite",
+    "dialect": "sqlite"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "db/development.sqlite",
+    "dialect": "sqlite"
   },
   "production": {
     "username": "root",
@@ -20,4 +20,4 @@
     "host": "127.0.0.1",
     "dialect": "pg"
   }
-}  
+}

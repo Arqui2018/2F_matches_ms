@@ -9,9 +9,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
-  res.send('Hello world!!!');
-});
+// get all routes
+const routes = require('./config/routes.js');
+// set all routes
+routes(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
