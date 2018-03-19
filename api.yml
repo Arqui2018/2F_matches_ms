@@ -1,0 +1,202 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Microservice for Match and Teams
+  description: Node JS + MySQL
+  license:
+    name: Software Architecture 2018-I
+host: 192.168.99.101:4003
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /matches:
+    get:
+      summary: Returns all matches
+      operationId: allMatches
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/MatchesList'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /matches/{id}:
+    get:
+      summary: Returns a match with the given id
+      operationId: matchById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the match to be returned
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Match'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+            description: Not Acceptable (Invalid Params)
+            schema:
+              $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+  /teams:
+    get:
+      summary: Returns all teams
+      operationId: allTeams
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/TeamsList'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /teams/{id}:
+    get:
+      summary: Returns a team with the given id
+      operationId: teamById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the team to be returned
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Team'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+            description: Not Acceptable (Invalid Params)
+            schema:
+              $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+definitions:
+
+  # Match
+  Match:
+    type: object
+    properties:
+      id:
+        type: integer
+      team_local_id:
+        type: integer
+      team_visitor_id:
+        type: integer
+      goals_local:
+        type: integer
+      goals_visitor:
+        type: integer
+      date:
+        type: string
+      createdAt:
+        type: string
+      updatedAt:
+        type: string
+
+  MatchInput:
+    type: object
+    properties:
+      id:
+        type: integer
+      team_local_id:
+        type: integer
+      team_visitor_id:
+        type: integer
+      goals_local:
+        type: integer
+      goals_visitor:
+        type: integer
+      date:
+        type: string
+      createdAt:
+        type: string
+      updatedAt:
+        type: string
+
+  # Team
+  Team:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      createdAt:
+        type: string
+      updatedAt:
+        type: string
+
+  TeamInput:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      createdAt:
+        type: string
+      updatedAt:
+        type: string
+
+
+  MatchesList:
+    type: object
+    required:
+      - total
+      - list
+    properties:
+      total:
+        type: number
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/Match'
+
+# Errors
+  ErrorModel:
+    type: object
+    required:
+      - message
+      - code
+    properties:
+      message:
+        type: string
+      code:
+        type: number
+      description:
+        type: object
