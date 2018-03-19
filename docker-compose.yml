@@ -1,32 +1,27 @@
 version: '2'
 services:
-  matches_pg_db:
-    image: POSTGRES
-    ports:
-      - "3310:3306"
-    environment:
-      POSTGRES_USER: apuesta
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_ROOT_PASSWORD: 1234
-      POSTGRES_DATABASE: match
-      POSTGRES_HOST: matches_pg_db
-  matches_mongo_db:
-    image: MONGO
+  matches_db:
+    image: mysql
     ports:
       - "3311:3306"
     environment:
-      MONGO_USER: apuesta
-      MONGO_PASSWORD: 1234
-      MONGO_ROOT_PASSWORD: 1234
-      MONGO_DATABASE: match
-      MONGO_HOST: matches_mongo_db
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_USER: apuesta
+      MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: match
+      MYSQL_HOST: matches_db
   matches_ms:
     build: .
     command: npm start
     ports:
-      - "3000:3000"
+      - "4000:4000"
     depends_on:
-      - matches_pg_db
-      - matches_mongo_db
+      - matches_db
     environment:
       NODE_ENV: production
+      PORT: 4003
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_USER: apuesta
+      MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: match
+      MYSQL_HOST: matches_db

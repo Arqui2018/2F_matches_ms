@@ -8,5 +8,8 @@ exports.index = async (req, res) => {
 
 exports.show = async (req, res) => {
   const match = await Match.findOne({ where: { id: req.params.id } });
+  if (!match) {
+    res.sendStatus(400);
+  }
   res.json(match);
 };

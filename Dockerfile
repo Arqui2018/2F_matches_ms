@@ -5,7 +5,7 @@ WORKDIR /git/matches-ms
 
 # Install app dependencies
 COPY package.json /git/matches-ms/
-RUN npm install
+RUN npm install --production
 
 # Bundle app source
 COPY . /git/matches-ms/

@@ -1,51 +1,7 @@
 'use strict';
 
-const Team = require('../models/Team.js');
-
-const mongoose = require('mongoose');
-const PORT_MONGO = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/test';
-mongoose.connect(PORT_MONGO);
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-
-    const allTeams = [];
-    allTeams.push(new Team({ name: 'Rusia', id: 1 }));
-    allTeams.push(new Team({ name: 'Arabia Saudita', id: 2 }));
-    allTeams.push(new Team({ name: 'Egipto', id: 3 }));
-    allTeams.push(new Team({ name: 'Uruguay', id: 4 }));
-    allTeams.push(new Team({ name: 'Marruecos', id: 5 }));
-    allTeams.push(new Team({ name: 'Irán', id: 6 }));
-    allTeams.push(new Team({ name: 'Portugal', id: 7 }));
-    allTeams.push(new Team({ name: 'España', id: 8 }));
-    allTeams.push(new Team({ name: 'Francia', id: 9 }));
-    allTeams.push(new Team({ name: 'Australia', id: 10 }));
-    allTeams.push(new Team({ name: 'Argentina', id: 11 }));
-    allTeams.push(new Team({ name: 'Islandia', id: 12 }));
-    allTeams.push(new Team({ name: 'Perú', id: 13 }));
-    allTeams.push(new Team({ name: 'Dinamarca', id: 14 }));
-    allTeams.push(new Team({ name: 'Croacia', id: 15 }));
-    allTeams.push(new Team({ name: 'Nigeria', id: 16 }));
-    allTeams.push(new Team({ name: 'Costa Rica', id: 17 }));
-    allTeams.push(new Team({ name: 'Serbia', id: 18 }));
-    allTeams.push(new Team({ name: 'Alemania', id: 19 }));
-    allTeams.push(new Team({ name: 'México', id: 20 }));
-    allTeams.push(new Team({ name: 'Brasil', id: 21 }));
-    allTeams.push(new Team({ name: 'Suiza', id: 22 }));
-    allTeams.push(new Team({ name: 'Suecia', id: 23 }));
-    allTeams.push(new Team({ name: 'República de Corea', id: 24 }));
-    allTeams.push(new Team({ name: 'Bélgica', id: 25 }));
-    allTeams.push(new Team({ name: 'Panamá', id: 26 }));
-    allTeams.push(new Team({ name: 'Túnez', id: 27 }));
-    allTeams.push(new Team({ name: 'Inglaterra', id: 28 }));
-    allTeams.push(new Team({ name: 'Colombia', id: 29 }));
-    allTeams.push(new Team({ name: 'Japón', id: 30 }));
-    allTeams.push(new Team({ name: 'Polonia', id: 31 }));
-    allTeams.push(new Team({ name: 'Senegal', id: 32 }));
-    for (const item of allTeams)
-      await item.save();
-
-
     return queryInterface.bulkInsert('Matches', [
       {
         id: 1,

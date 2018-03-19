@@ -10,11 +10,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       team_local_id: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       team_visitor_id: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       goals_local: {

@@ -1,13 +1,9 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-const PORT_MONGO = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/test';
-mongoose.connect(PORT_MONGO);
-
+const PORT = process.env.PORT || 3000;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -26,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -35,4 +31,4 @@ app.use((err, req, res, next) => {
   res.sendStatus(err.status || 500);
 });
 
-app.listen(3001, () => { console.log(`Server is running on port ${PORT}`)});
+app.listen(PORT, () => { console.log(`Server is running on port ${PORT}`); });

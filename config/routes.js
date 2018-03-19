@@ -1,7 +1,6 @@
 
 const MatchController = require('../controllers/MatchController.js');
-const TeamController = require('../controllers/TeamController.js');
-// const { MatchController, TeamController } = require('../controllers/*');
+const TeamController = require('../controllers/MatchController.js');
 
 module.exports = (app) => {
   app.get('/matches', MatchController.index);
