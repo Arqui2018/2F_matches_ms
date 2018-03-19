@@ -7,7 +7,7 @@ exports.index = async (req, res) => {
 };
 
 exports.show = async (req, res) => {
-  const team = await Team.findOne({ where: { id: req.params.id } });
+  const team = await Team.findById(req.params.id);
   if (!team) {
     res.sendStatus(400);
   }
