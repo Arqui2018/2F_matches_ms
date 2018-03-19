@@ -1,3 +1,5 @@
+#Test with: http://editor.swagger.io/
+
 swagger: '2.0'
 info:
   version: 1.0.0
@@ -186,6 +188,19 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Match'
+
+  TeamsList:
+    type: object
+      required:
+        - total
+        - list
+      properties:
+        total:
+          type: number
+        list:
+          type: array
+          items:
+            $ref: '#/definitions/Teams'
 
 # Errors
   ErrorModel:
