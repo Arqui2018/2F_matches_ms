@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL || 'mongodb://127.0.0.1:27017');
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

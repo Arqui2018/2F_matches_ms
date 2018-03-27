@@ -10,6 +10,10 @@ services:
       MYSQL_PASSWORD: 1234
       MYSQL_DATABASE: match
       MYSQL_HOST: matches_db
+  teams_db:
+    image: mongo
+    ports:
+      - "27017:27017"
   matches_ms:
     build: .
     command: npm start
@@ -17,6 +21,7 @@ services:
       - "4003:4003"
     depends_on:
       - matches_db
+      - teams_db
     environment:
       NODE_ENV: production
       PORT: 4003
@@ -25,3 +30,4 @@ services:
       MYSQL_PASSWORD: 1234
       MYSQL_DATABASE: match
       MYSQL_HOST: matches_db
+      MONGO_URL: mongodb://teams_db:27017/db

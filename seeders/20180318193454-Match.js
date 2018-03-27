@@ -1,7 +1,53 @@
 'use strict';
 
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL || 'mongodb://127.0.0.1:27017');
+const Team = require('../models/Team.js');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+
+    const teams = [
+      'Rusia',
+      'Arabia Saudita',
+      'Egipto',
+      'Uruguay',
+      'Marruecos',
+      'Irán',
+      'Portugal',
+      'España',
+      'Francia',
+      'Australia',
+      'Argentina',
+      'Islandia',
+      'Perú',
+      'Dinamarca',
+      'Croacia',
+      'Nigeria',
+      'Costa Rica',
+      'Serbia',
+      'Alemania',
+      'México',
+      'Brasil',
+      'Suiza',
+      'Suecia',
+      'República de Corea',
+      'Bélgica',
+      'Panamá',
+      'Túnez',
+      'Inglaterra',
+      'Colombia',
+      'Japón',
+      'Polonia',
+      'Senegal',
+    ];
+
+    for (let i = 0, aux; i < teams.length; i += 1) {
+      aux = new Team({ id: i + 1, name: teams[i] });
+      await aux.save();
+    }
+
+    // do magic
     return queryInterface.bulkInsert('Matches', [
       {
         id: 1,
