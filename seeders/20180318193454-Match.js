@@ -387,14 +387,6 @@ module.exports = {
       },
       {
         id: 43,
-        team_local_id: 24,
-        team_visitor_id: 19,
-        date: new Date(2018, 5, 27, 9),
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        id: 44,
         team_local_id: 18,
         team_visitor_id: 21,
         date: new Date(2018, 5, 27, 13),
@@ -402,7 +394,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 45,
+        id: 44,
         team_local_id: 22,
         team_visitor_id: 17,
         date: new Date(2018, 5, 27, 13),
@@ -410,7 +402,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 46,
+        id: 45,
         team_local_id: 30,
         team_visitor_id: 31,
         date: new Date(2018, 5, 28, 9),
@@ -418,7 +410,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 47,
+        id: 46,
         team_local_id: 32,
         team_visitor_id: 29,
         date: new Date(2018, 5, 28, 9),
@@ -426,7 +418,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 48,
+        id: 47,
         team_local_id: 26,
         team_visitor_id: 27,
         date: new Date(2018, 5, 28, 13),
@@ -434,7 +426,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 49,
+        id: 48,
         team_local_id: 28,
         team_visitor_id: 25,
         date: new Date(2018, 5, 28, 13),
