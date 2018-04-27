@@ -11,3 +11,5 @@ RUN npm install --production
 COPY . /git/matches-ms/
 
 CMD [ "npm", "start"]
+
+EXPOSE 4003

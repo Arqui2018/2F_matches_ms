@@ -1,15 +1,21 @@
+'use strict';
 
 const Team = require('../models/Team.js');
 
-exports.index = async (req, res) => {
-  const teams = await Team.find();
-  res.json(teams);
-};
+class TeamController {
 
-exports.show = async (req, res) => {
-  const team = await Team.findOne({ id: req.params.id });
-  if (!team) {
-    res.sendStatus(400);
+  async index(req, res) {
+    const teams = await Team.find();
+    res.json(teams);
   }
-  res.json(team);
-};
+
+  async show(req, res) {
+    const team = await Team.findOne({ id: req.params.id });
+    if (!team) {
+      res.sendStatus(400);
+    }
+    res.json(team);
+  }
+}
+
+module.exports = new TeamController();
