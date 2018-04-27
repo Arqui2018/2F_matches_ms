@@ -16,7 +16,7 @@ services:
       - "27017:27017"
   matches_ms:
     build: .
-    command: npm start
+    command: bash -c "npm run sequelize db:migrate && npm run sequelize db:seed:all && npm start"
     ports:
       - "4003:4003"
     depends_on:
