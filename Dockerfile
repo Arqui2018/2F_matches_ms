@@ -10,6 +10,4 @@ RUN npm install --production
 # Bundle app source
 COPY . /git/matches-ms/
 
-CMD [ "npm", "start"]
-
 EXPOSE 4003

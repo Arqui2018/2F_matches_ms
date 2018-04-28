@@ -10,11 +10,16 @@ class MatchController {
   }
 
   async show(req, res) {
-    const match = await Match.findById(req.params.id);
-    if (!match) {
-      res.sendStatus(400);
+    try {
+      const match = await Match.findById(req.params.id);
+      if (!match) {
+        throw (404);        
+      }
+      res.json(match);
     }
-    res.json(match);
+    catch (e) {
+      res.sendStatus(e);
+    }
   }
 }
 
